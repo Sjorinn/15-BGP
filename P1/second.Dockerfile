@@ -1,1 +1,0 @@
-FROM frrouting/frr:latest

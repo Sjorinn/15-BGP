@@ -21,6 +21,9 @@ sudo add-apt-repository \
 sudo apt update -y
 sudo apt install -y docker-ce
 
+docker pull alpine
+docker pull frrouting/frr
+
 # TODO: make this a loop
 sudo usermod -aG ubridge $USER
 sudo usermod -aG libvirt $USER

@@ -23,6 +23,7 @@ sudo apt install -y docker-ce
 
 docker pull alpine
 docker pull frrouting/frr
+docker pull peerdebakker/badass-gns3
 
 # TODO: make this a loop
 sudo usermod -aG ubridge $USER

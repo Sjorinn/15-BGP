@@ -36,6 +36,39 @@ And now (roughly) the same for our second router:
 	* ip -d link show vxlan10
 * brctl addif br0 eth1
 * brctl addif br0 vxlan10
+* ip link set dev vxlan10 up
+
+
+First host:
+* ip addr add 30.1.1.1/24 dev eth1
+
+Second host:
+* ip addr add 30.1.1.2/24 dev eth1
+
+Now we have done everything statically, but that's no fun!
+So let's do it dynamically instead:
+
+Step 3:
+For the first router:
+* ip link add br0 type bridge
+* ip link set dev br0 up
+* ip addr add 10.1.1.1/24 dev eth0
+* ip link add name vxlan10 type vxlan id 10 dev eth0 group 239.1.1.1 dstport 4789
+* ip addr add 20.1.1.1/24 dev vxlan10
+* brctl addif br0 eth1
+* brctl addif br0 vxlan10
+* ip link set dev vxlan10 up
+
+And now (roughly) the same for our second router:
+* ip link add br0 type bridge
+* ip link set dev br0 up
+* ip addr add 10.1.1.2/24 dev eth0
+* ip link add name vxlan10 type vxlan id 10 dev eth0 group 239.1.1.1 dstport 4789
+* ip addr add 20.1.1.2/24 dev vxlan10
+* ip link set dev vxlan10 up
+* brctl addif br0 eth1
+* brctl addif br0 vxlan10
+* ip link set dev vxlan10 up
 
 First host:
 * ip addr add 30.1.1.1/24 dev eth1

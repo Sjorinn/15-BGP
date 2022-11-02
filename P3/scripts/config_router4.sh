@@ -16,7 +16,7 @@ interface eth2
  ip address 10.1.1.10/30
  ip ospf area 0
 !
-interface lo
+interface lo  
  ip address 1.1.1.4/32
  ip ospf area 0
 !

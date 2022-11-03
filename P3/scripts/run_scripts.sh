@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
-running_containers=$(docker ps -q)
+running_containers=$(docker ps --format "{{.Names}}")
 if [[ ! -z $running_containers ]]
 then
   for i in ${running_containers[@]}
   do
 	hostname=$(docker exec $i hostname)
-	echo "Renaming $i to $hostname"
-	docker rename "$i" "$hostname"
+	if [[ "$i" != "$hostname" ]]; then
+		echo "Renaming $i to $hostname"
+		docker rename "$i" "$hostname"
+	fi
   done
 else
   echo "No running containers"

@@ -29,7 +29,8 @@ router bgp 1
 !
 router ospf
  network 0.0.0.0/0 area 0
-!
-line vty
-!
+
+end
+write file
+write integrated
 EOF

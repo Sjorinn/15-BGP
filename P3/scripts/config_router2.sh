@@ -39,6 +39,8 @@ router bgp 1
 !
 # Turn on ospf on the router
 router ospf
-!
 
+end
+write file
+write integrated
 EOF

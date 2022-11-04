@@ -27,7 +27,7 @@ router bgp 1
  neighbor ibgp update-source lo
 # Neighbor are defined by this ip range
  bgp listen range 1.1.1.0/29 peer-group ibgp
- !
+
  # Enable the bgp evpn
  address-family l2vpn evpn
  # Enable exchange with all bgp neighbor
@@ -42,6 +42,7 @@ router ospf
  network 0.0.0.0/0 area 0
 
 end
-write file
-write integrated
 EOF
+
+# You could use 'write file' or 'write integrated' to save the changes
+# To config files, but since the changes from the 'ip' commands get reset every time, we opted not to.

@@ -44,6 +44,4 @@ router bgp 1
 router ospf
 
 end
-write file
-write integrated
 EOF
